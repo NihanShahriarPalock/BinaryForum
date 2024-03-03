@@ -8,10 +8,14 @@ const latestPosts = async () => {
 }
 
 const latestPostsDetails = (data) => {
-    console.log(data); 
+    // console.log(data); 
+
+    
 
     
     data.forEach(post => {
+
+        
         const latestPostsContainer = document.getElementById("latest-posts-container");
 
         const postDiv = document.createElement("div");

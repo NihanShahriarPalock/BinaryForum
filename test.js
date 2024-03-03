@@ -1,14 +1,17 @@
 const allPosts = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     allPostsDetails(data.posts);
 }
 
 const allPostsDetails = (data) => {
     const allPostsContainer = document.getElementById("all-posts-container");
     data.forEach(allPost => {
-        console.log(data);
+        // console.log(data);
+        const indicatorStatus = allPost.isActive;
+        console.log(indicatorStatus);
+        let indicateColor = indicatorStatus ? "success" : "error";
         
         const postDiv = document.createElement("div");
         postDiv.className = "rounded-3xl border border-[#12132D26] border-solid max-w-[740px] bg-white p-5 mb-4";
@@ -16,7 +19,7 @@ const allPostsDetails = (data) => {
         postDiv.innerHTML = `
                     <div class="bg-[#F3F3F5]  rounded-lg flex gap-6 w-full border-2 p-12">
                         <div class="indicator">
-                            <span class="indicator-item badge badge-success"></span>
+                            <span class="indicator-item badge badge-${indicateColor}"></span>
                             <div class="grid w-32 h-32 bg-base-300 place-items-center rounded-3xl overflow-hidden">
                                 <img class="" src="${allPost.image}" alt="">
                             </div>
