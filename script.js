@@ -128,19 +128,33 @@ const allPostsDetails = (data) => {
 
         allPostsContainer.appendChild(postDiv);
     });
+    loadingSpinner(false);
 }
 
 // Search Start
 
-const searchButton = document.getElementById("search-button").addEventListener("click",function(){
+const searchButton = document.getElementById("search-button").addEventListener("click", function () {
     const searchInput = document.getElementById("input-field");
     const searchText = searchInput.value;
-    searchInput.value="";
-    // console.log(searchText);
-    allPosts(searchText);
+    searchInput.value = "";
+    document.getElementById("all-post").classList.add("hidden")  
+    loadingSpinner(true); 
+    setTimeout(function () {   
+        document.getElementById("all-post").classList.remove("hidden")                     
+        allPosts(searchText);
+    }, 2000); 
+    
+});
 
-})
 
+const loadingSpinner = (isLoading) => {
+    const loading = document.getElementById("loading-spinner");
+    if (isLoading) {
+        loading.classList.remove("hidden");
+    } else {
+        loading.classList.add("hidden");
+    }
+}
 
 
 
