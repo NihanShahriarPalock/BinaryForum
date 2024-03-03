@@ -1,9 +1,5 @@
 
-
-
-
-
-// latest Posts 
+// Latest Posts Function
 const latestPosts = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
     const data = await res.json();
@@ -48,7 +44,7 @@ const latestPostsDetails = (data) => {
 latestPosts();
 
 
-// Lets Discuss Data 
+// Lets Discuss Left Side
 
 const allPosts = async (searchText) => {
 
@@ -131,54 +127,7 @@ const allPostsDetails = (data) => {
     loadingSpinner(false);
 }
 
-// Search Start
-
-const searchButton = document.getElementById("search-button").addEventListener("click", function () {
-    const searchInput = document.getElementById("input-field");
-    const searchText = searchInput.value;
-    searchInput.value = "";
-    document.getElementById("all-post").classList.add("hidden")  
-    loadingSpinner(true); 
-    setTimeout(function () {   
-        document.getElementById("all-post").classList.remove("hidden")                     
-        allPosts(searchText);
-    }, 2000); 
-    
-});
-
-
-const loadingSpinner = (isLoading) => {
-    const loading = document.getElementById("loading-spinner");
-    if (isLoading) {
-        loading.classList.remove("hidden");
-    } else {
-        loading.classList.add("hidden");
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Count Function
-let countNumber = 0;
-function readButton() {
-    countNumber++;
-    const readCountNumber = document.getElementById("read-count").innerText = countNumber;
-
-}
+// Lets Discuss Title and View Count
 
 const titleDataPass = (titleData) => {
     readButton();
@@ -200,5 +149,45 @@ const titleDataPass = (titleData) => {
 
     titlePostsContainer.appendChild(postDiv);
 }
+
+
+
+
+// Search Function
+const searchButton = document.getElementById("search-button").addEventListener("click", function () {
+    const searchInput = document.getElementById("input-field");
+    const searchText = searchInput.value;
+    searchInput.value = "";
+    document.getElementById("all-post").classList.add("hidden")  
+    loadingSpinner(true); 
+    setTimeout(function () {   
+        document.getElementById("all-post").classList.remove("hidden")                     
+        allPosts(searchText);
+    }, 2000); 
+    
+});
+
+
+// Loading Function
+const loadingSpinner = (isLoading) => {
+    const loading = document.getElementById("loading-spinner");
+    if (isLoading) {
+        loading.classList.remove("hidden");
+    } else {
+        loading.classList.add("hidden");
+    }
+}
+
+
+
+// Count Function
+let countNumber = 0;
+function readButton() {
+    countNumber++;
+    const readCountNumber = document.getElementById("read-count").innerText = countNumber;
+
+}
+
+
 
 
