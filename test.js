@@ -1,18 +1,20 @@
 const allPosts = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
     const data = await res.json();
-    allPostsDetails(data);
+    console.log(data);
+    allPostsDetails(data.posts);
 }
 
 const allPostsDetails = (data) => {
+    const allPostsContainer = document.getElementById("all-posts-container");
     data.forEach(allPost => {
-        const allPostsContainer = document.getElementById("all-posts-container");
-
+        console.log(data);
+        
         const postDiv = document.createElement("div");
-        postDiv.className = "rounded-3xl border border-[#12132D26] border-solid bg-white p-5 mb-4";
+        postDiv.className = "rounded-3xl border border-[#12132D26] border-solid max-w-[740px] bg-white p-5 mb-4";
 
         postDiv.innerHTML = `
-                    <div class="bg-[#F3F3F5] rounded-lg flex gap-6  border-2 p-12">
+                    <div class="bg-[#F3F3F5]  rounded-lg flex gap-6 w-full border-2 p-12">
                         <div class="indicator">
                             <span class="indicator-item badge badge-success"></span>
                             <div class="grid w-32 h-32 bg-base-300 place-items-center rounded-3xl overflow-hidden">
@@ -20,19 +22,19 @@ const allPostsDetails = (data) => {
                             </div>
                         </div>
 
-                        <div>
+                        <div class="w-full">
                             <div class="flex items-center font-medium mb-4 gap-5 text-[#12132DCC]">
                                 <p class=""># <span>${allPost.category}</span> </p>
                                 <p class="">Author : <span>${allPost.author.name}</span> </p>
                             </div>
                             <h2 class="text-black font-bold text-xl mb-2">${allPost.title}</h2>
-                            <p class="text-gray-600">${allPost.description}</p>
+                            <p class="text-gray-600 ">${allPost.description}</p>
                             <div class="my-5 divide-y-2 divide-dashed divider-[#12132D40]">
                                 <div></div>
                                 <div></div>
                                 <div></div>
                             </div>
-                            <div class="flex justify-between font-inter text-[#12132D99] mt-6">
+                            <div class="flex justify-between font-inter text-[#12132D99] mt-6 ">
                                 <div class="flex items-center">
                                     <div class="flex items-center">
                                         <i class="fa-regular fa-comment-dots mr-3"></i>
