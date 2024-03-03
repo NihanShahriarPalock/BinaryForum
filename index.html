@@ -47,7 +47,7 @@
         <section
             class="bg-[#12132D] flex flex-col lg:flex-row justify-between gap-4 lg:gap-1   rounded-3xl p-4 lg:p-24 bg-no-repeat bg-bottom bg-cover bg-[url(./images/banner.png)]">
 
-            <div class="flex flex-col">
+            <div class="flex flex-col justify-center lg:justify-start items-center lg:items-start">
                 <h1 class="font-black text-5xl lg:text-6xl font-mulish text-white">Welcome to the <br> <span
                         class="bg-clip-text text-transparent bg-gradient-to-r from-[#797DFC] from-65% to-[#797dfc]">ReTro</span>
                     Forum
@@ -55,9 +55,9 @@
                 <p class="mt-5 mb-8 text-[#FFFFFFCC] font-medium">Share your favorite opinion and win and wp <br> forum
                     coffee mug!</p>
 
-                <label class="input rounded-full input-bordered flex justify-center items-center w-96 h-[56px]">
-                    <input type="text" class="grow" placeholder="Search here anything" />
-                    <button
+                <label class="input border rounded-full input-bordered flex justify-center items-center w-[400px] h-[56px]">
+                    <input type="text" id="input-field" class="grow" placeholder="Search here anything" />
+                    <button id="search-button"
                         class="px-6 py-2 -mr-3 text-white rounded-full bg-[#797DFC] font-bold text-xl">Search</button>
                 </label>
             </div>
@@ -249,9 +249,10 @@
 
     </footer>
 
-    
+   
+ 
     <script src="./script.js"></script>
-    <script src="./test.js"></script>
+    <!-- <script src="./test.js"></script> -->
     <!-- <script src="./title.js"></script> -->
 
 </body>
