@@ -10,14 +10,9 @@ const latestPosts = async () => {
 const latestPostsDetails = (data) => {
     // console.log(data); 
 
-    
-
-    
     data.forEach(post => {
 
-        
         const latestPostsContainer = document.getElementById("latest-posts-container");
-
         const postDiv = document.createElement("div");
         postDiv.className = "rounded-3xl border border-[#12132D26] border-solid bg-white p-5 mb-4";
 
