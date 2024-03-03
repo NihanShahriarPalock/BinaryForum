@@ -5,7 +5,7 @@ const allPosts = async () => {
     const data = await res.json();
     // console.log(data);
     allPostsDetails(data.posts);
-    // titleContainer(data.posts);
+    
 }
 allPosts();
 const allPostsDetails = (data) => {
@@ -20,7 +20,7 @@ const allPostsDetails = (data) => {
         postDiv.className = "rounded-3xl max-w-[740px] mb-10";
 
         postDiv.innerHTML = `
-                    <div class="bg-[#F3F3F5]  rounded-3xl flex gap-6 w-full border-2 p-12">
+                    <div class="bg-[#F3F3F5]  rounded-3xl flex gap-6 w-full border-2  p-2 lg:p-12">
                         <div class="indicator">
                             <span class="indicator-item badge badge-${indicateColor}"></span>
                             <div class="grid w-32 h-32 bg-base-300 place-items-center rounded-3xl overflow-hidden">
@@ -40,23 +40,23 @@ const allPostsDetails = (data) => {
                                 <div></div>
                                 <div></div>
                             </div>
-                            <div class="flex justify-between font-inter text-[#12132D99] mt-6 ">
+                            <div class="flex justify-center lg:justify-between font-inter text-[#12132D99] mt-6 ">
                                 <div class="flex items-center">
                                     <div class="flex items-center">
-                                        <i class="fa-regular fa-comment-dots mr-3"></i>
-                                        <span class="text-[#12132D99] mr-6">${allPost.comment_count}</span>
+                                        <i class="fa-regular fa-comment-dots mr-1 lg:mr-3"></i>
+                                        <span class="text-[#12132D99] mr-2 lg:mr-6">${allPost.comment_count}</span>
                                     </div>
                                     <div class="flex items-center">
-                                        <i class="fa-regular fa-eye mr-3"></i>
-                                        <span class="text-[#12132D99] mr-6">${allPost.view_count}</span>
+                                        <i class="fa-regular fa-eye mr-1 lg:mr-3"></i>
+                                        <span class="text-[#12132D99] mr-2 lg:mr-6">${allPost.view_count}</span>
                                     </div>
                                     <div class="flex items-center">
-                                        <i class="fa-regular fa-clock mr-3"></i>
-                                        <span class="text-[#12132D99] mr-6">${allPost.posted_time} <span>min</span></span>
+                                        <i class="fa-regular fa-clock mr-1 lg:mr-3"></i>
+                                        <span class="text-[#12132D99] mr-2 lg:mr-6">${allPost.posted_time} <span>min</span></span>
                                     </div>
                                 </div>
                                 <div>
-                                    <button id="read-button" onclick="readButton();titleDataPass('${allPost.title},${allPost.view_count}')">
+                                    <button id="read-button" onclick="titleDataPass({title: '${allPost.title}', view_count:  ${allPost.view_count}})">
                                    <img src="./images/email.svg" alt="">
                                     </button>
                                 </div>
@@ -74,56 +74,28 @@ let countNumber=0;
 function readButton(){
     countNumber++;
     const readCountNumber = document.getElementById("read-count").innerText = countNumber;
+    
 }
 
-const titleDataPass=(titleData)=>{
+const titleDataPass = (titleData) => {
+    readButton();
     console.log(titleData);
     const titlePostsContainer = document.getElementById("title-container"); // Corrected id
-    titleData.forEach(allPost => {
-        // console.log(data);
 
-        const postDiv = document.createElement("div");
-        postDiv.className = "bg-white mx-6 my-4 p-4 rounded-3xl flex flex-row";
+    const postDiv = document.createElement("div");
+    postDiv.className = "bg-white mx-6 my-4 p-4 rounded-3xl flex flex-row";
 
-        postDiv.innerHTML = `  
-         <div>
-         <h2 class="font-semibold w-64 ">${allPost.title}</h2>
+    postDiv.innerHTML = `  
+        <div>
+            <h2 class="font-semibold w-64">${titleData.title}</h2>
         </div>
-          <div class="ml-1 flex justify-center items-center text-center text-[#12132D99]">
-         <i class="mr-2 fa-regular fa-eye"></i>
-         <p>${allPost.view_count}</p>
-        </div >
-              
-                `;
+        <div class="ml-1 flex justify-center items-center text-center text-[#12132D99]">
+            <i class="mr-2 fa-regular fa-eye"></i>
+            <p>${titleData.view_count}</p>
+        </div>
+    `;
 
-        titlePostsContainer.appendChild(postDiv);
-    });
-
-
+    titlePostsContainer.appendChild(postDiv);
 }
-
-
-// const titleContainer = (data) => {
-//     const titlePostsContainer = document.getElementById("title-container"); // Corrected id
-//     data.forEach(allPost => {
-//         // console.log(data);
-
-//         const postDiv = document.createElement("div");
-//         postDiv.className = "bg-white mx-6 my-4 p-4 rounded-3xl flex flex-row";
-
-//         postDiv.innerHTML = `  
-//          <div>
-//          <h2 class="font-semibold w-64 ">${allPost.title}</h2>
-//         </div>
-//           <div class="ml-1 flex justify-center items-center text-center text-[#12132D99]">
-//          <i class="mr-2 fa-regular fa-eye"></i>
-//          <p>${allPost.view_count}</p>
-//         </div >
-              
-//                 `;
-
-//         titlePostsContainer.appendChild(postDiv);
-//     });
-// }
 
 
