@@ -75,7 +75,7 @@ const allPostsDetails = (data) => {
         let indicateColor = indicatorStatus ? "success" : "error";
 
         const postDiv = document.createElement("div");
-        postDiv.className = "rounded-3xl max-w-[740px] mb-10";
+        postDiv.className = "rounded-3xl max-w-[800px] mb-10";
 
         postDiv.innerHTML = `
                  <div class="bg-[#F3F3F5]  rounded-3xl flex gap-3 lg:gap-6 w-full border-2  p-2 lg:p-12">
@@ -190,7 +190,7 @@ function readButton() {
 
 
 
-
+// Hamburger Function
 function toggleMenu() {
     var menu = document.getElementById('menu');
     
@@ -198,21 +198,5 @@ function toggleMenu() {
 
 }
 
-function toggleMenu() {
-    var menu = document.getElementById('menu');
-    menu.classList.toggle('opacity-0');
 
-    // Calculate the height of the menu
-    var menuHeight = menu.offsetHeight;
-
-    // If the menu is open, adjust the position of other elements
-    if (!menu.classList.contains('opacity-0')) {
-        var content = document.querySelector('.block');
-        content.style.marginTop = menuHeight + 'px';
-    } else {
-        
-        var content = document.querySelector('.block');
-        content.style.marginTop = '0';
-    }
-}
 
