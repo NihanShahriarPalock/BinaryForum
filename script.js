@@ -81,17 +81,17 @@ const allPostsDetails = (data) => {
                  <div class="bg-[#F3F3F5]  rounded-3xl flex gap-3 lg:gap-6 w-full border-2  p-2 lg:p-12">
                      <div class="indicator">
                          <span class="indicator-item badge badge-${indicateColor}"></span>
-                         <div class="grid w-32 h-32 bg-base-300 place-items-center rounded-3xl overflow-hidden">
-                             <img class="" src="${allPost.image}" alt="">
+                         <div class="grid w-24 lg:w-32 h-24 lg:h-32 bg-base-300 place-items-center rounded-3xl overflow-hidden">
+                             <img class="y-auto" src="${allPost.image}" alt="">
                          </div>
                      </div>
                      <div class="w-full">
-                         <div class="flex items-center font-medium mb-4 gap-5 text-[#12132DCC]">
-                             <p class=""># <span>${allPost.category}</span> </p>
-                             <p class="">Author : <span>${allPost.author.name}</span> </p>
+                         <div class="flex items-center font-inter font-medium mb-4 gap-5 text-[#12132DCC]">
+                             <p class="text-sm font-medium"># ${allPost.category} </p>
+                             <p class="text-sm font-medium">Author : ${allPost.author.name} </p>
                          </div>
-                         <h2 class="text-black font-bold text-xl mb-2">${allPost.title}</h2>
-                         <p class="text-gray-600 ">${allPost.description}</p>
+                         <h2 class="text-black  font-bold text-xl mb-2">${allPost.title}</h2>
+                         <p class="text-gray-600 font-inter ">${allPost.description}</p>
                          <div class="my-5 divide-y-2 divide-dashed divider-[#12132D40]">
                              <div></div>
                              <div></div>
@@ -132,7 +132,7 @@ const allPostsDetails = (data) => {
 const titleDataPass = (titleData) => {
     readButton();
     console.log(titleData);
-    const titlePostsContainer = document.getElementById("title-container"); // Corrected id
+    const titlePostsContainer = document.getElementById("title-container"); 
 
     const postDiv = document.createElement("div");
     postDiv.className = "bg-white mx-6 my-4 p-4 rounded-3xl flex flex-row";
@@ -142,8 +142,8 @@ const titleDataPass = (titleData) => {
             <h2 class="font-semibold w-64">${titleData.title}</h2>
         </div>
         <div class="ml-1 flex justify-center items-center text-center text-[#12132D99]">
-            <i class="mr-2 fa-regular fa-eye"></i>
-            <p>${titleData.view_count}</p>
+            <i class="mr-2  fa-regular fa-eye "></i>
+            <p class="font-inter">${titleData.view_count}</p>
         </div>
     `;
 
@@ -185,17 +185,12 @@ let countNumber = 0;
 function readButton() {
     countNumber++;
     const readCountNumber = document.getElementById("read-count").innerText = countNumber;
-
 }
-
 
 
 // Hamburger Function
 function toggleMenu() {
-    var menu = document.getElementById('menu');
-    
-    menu.classList.toggle('opacity-0');
-
+    let menu = document.getElementById('menu').classList.toggle('opacity-0');  
 }
 
 
