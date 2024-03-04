@@ -191,3 +191,28 @@ function readButton() {
 
 
 
+function toggleMenu() {
+    var menu = document.getElementById('menu');
+    
+    menu.classList.toggle('opacity-0');
+
+}
+
+function toggleMenu() {
+    var menu = document.getElementById('menu');
+    menu.classList.toggle('opacity-0');
+
+    // Calculate the height of the menu
+    var menuHeight = menu.offsetHeight;
+
+    // If the menu is open, adjust the position of other elements
+    if (!menu.classList.contains('opacity-0')) {
+        var content = document.querySelector('.block');
+        content.style.marginTop = menuHeight + 'px';
+    } else {
+        
+        var content = document.querySelector('.block');
+        content.style.marginTop = '0';
+    }
+}
+
